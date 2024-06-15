@@ -4,6 +4,11 @@ Definindo os dados das questões
 
 Matriz = list[list[int | float | None]]
 
+MOEDAS = [
+    "Iene", "Rúpia", "Ringgit", "Dólar Americano",
+    "Dólar Canadense", "Euro", "Libra", "Peso"
+]
+
 # Matriz com taxas de câmbio
 TAXAS_DE_CAMBIO: Matriz = [
     [1, 50, 0.04, 0.008, 0.01, 0.0064, 0.0048, 0.0768],

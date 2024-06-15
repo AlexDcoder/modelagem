@@ -7,3 +7,4 @@ transações, que transações de câmbio Jake deveria realizar de modo
 a converter suas posições em moedas asiáticas das
 respectivas moedas para dólares?
 '''
+from ortools.linear_solver import pywraplp
