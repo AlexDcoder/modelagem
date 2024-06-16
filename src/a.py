@@ -4,12 +4,9 @@ e desenhe a rede para esse problema.
 Identifique os nós de suprimento e de demanda para a rede.
 '''
 from ortools.linear_solver import pywraplp
-from dados import TAXAS_DE_CAMBIO, MOEDAS
+from dados import TAXAS_DE_CAMBIO, MOEDAS, LIMITES_SOBRE_TRANSACOES
 import networkx as nx
 import matplotlib.pyplot as plt
-
-
-solver = pywraplp.Solver.CreateSolver("GLOP")
 
 
 def desenhar_fluxo():
@@ -33,10 +30,10 @@ def desenhar_fluxo():
             node_size=3000, font_size=8, arrowsize=12)
 
     nx.draw_networkx_edge_labels(
-        G, pos, edge_labels=labels, label_pos=0.23)
+        G, pos, edge_labels=labels, label_pos=0.24)
 
     plt.title("Rede de Conversão de Moedas")
     plt.show()
 
 
-# desenhar_grafo()
+desenhar_fluxo()
