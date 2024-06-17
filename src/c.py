@@ -5,3 +5,8 @@ que método Jake deveria usar para converter em dólares as posições
 atuais nas respectivas moedas asiáticas?
 '''
 from ortools.linear_solver import pywraplp
+from dados import TAXAS_DE_CAMBIO, MOEDAS, CUSTO_DE_TRANSACAO, LIMITES_SOBRE_TRANSACOES
+
+from math import inf
+
+solver = pywraplp.Solver.CreateSolver("GLOP")

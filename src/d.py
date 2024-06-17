@@ -8,3 +8,7 @@ a converter suas posições em moedas asiáticas das
 respectivas moedas para dólares?
 '''
 from ortools.linear_solver import pywraplp
+from dados import TAXAS_DE_CAMBIO, MOEDAS, CUSTO_DE_TRANSACAO, LIMITES_SOBRE_TRANSACOES
+from math import inf
+
+solver = pywraplp.Solver.CreateSolver("GLOP")
