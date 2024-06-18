@@ -7,26 +7,31 @@ transações, que transações de câmbio Jake deveria realizar de modo
 a converter suas posições em moedas asiáticas das
 respectivas moedas para dólares?
 '''
-from ortools.linear_solver import pywraplp
-from dados import TAXAS_DE_CAMBIO, MOEDAS, CUSTO_DE_TRANSACAO, LIMITES_SOBRE_TRANSACOES
-from math import inf
-from pprint import pprint
 from copy import deepcopy
+from ortools.graph.python import min_cost_flow
+from dados import TAXAS_DE_CAMBIO, MOEDAS, CUSTO_DE_TRANSACAO, \
+    LIMITES_SOBRE_TRANSACOES
 
 
 def resolver_questoes_com_imposto_aumentado():
     '''
         Resolvendo item d
     '''
-    novos_custos_de_transação = deepcopy(CUSTO_DE_TRANSACAO)
+    novos_custos_transacao = deepcopy(CUSTO_DE_TRANSACAO)
 
-    novos_custos_de_transação[1] = [
-        x * 5 if x is not None else None for x in novos_custos_de_transação[1]]
+    novos_custos_transacao[1] = [
+        x * 5 if x is not None else None for x in novos_custos_transacao[1]]
     for i in range(8):
-        novos_custos_de_transação[i][1] = novos_custos_de_transação[1][i]
+        novos_custos_transacao[i][1] = novos_custos_transacao[1][i]
 
-    pprint(novos_custos_de_transação)
-    solver = pywraplp.Solver.CreateSolver("GLOP")
+    # Criando solver
+    solver = min_cost_flow.SimpleMinCostFlow()
+
+    # Criando variáveis
+
+    # Criar condições
+
+    # Criar função objetivo
 
 
 resolver_questoes_com_imposto_aumentado()

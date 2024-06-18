@@ -3,12 +3,11 @@ Formule o problema de Jake como um problema do fluxo de custo mínimo
 e desenhe a rede para esse problema.
 Identifique os nós de suprimento e de demanda para a rede.
 '''
-from ortools.linear_solver import pywraplp
-from dados import TAXAS_DE_CAMBIO, MOEDAS, CUSTO_DE_TRANSACAO, LIMITES_SOBRE_TRANSACOES
+from pprint import pprint
 import networkx as nx
 import matplotlib.pyplot as plt
-from pprint import pprint
-from time import sleep
+from dados import TAXAS_DE_CAMBIO, MOEDAS, CUSTO_DE_TRANSACAO, \
+    LIMITES_SOBRE_TRANSACOES
 
 
 def modelando_contexto():
@@ -37,7 +36,8 @@ def modelando_contexto():
                     if CUSTO_DE_TRANSACAO[i_de][i_para] is not None:
                         funcao_objetivo += f"{CUSTO_DE_TRANSACAO[i_de]
                                               [i_para]} * X{i_de}{i_para}"
-
+    print("[VARIÁVEIS]\n")
+    pprint(variaveis)
     # Definindo Condições
 
     for i in range(3):
@@ -45,20 +45,11 @@ def modelando_contexto():
             if LIMITES_SOBRE_TRANSACOES[i][j] is not None:
                 condicoes += f"X{i}{j} * <= " \
                     f"{LIMITES_SOBRE_TRANSACOES[i][j]}\n"
+    print("\n[FUNÇÃO OBJETIVO]\n")
+    print(funcao_objetivo)
 
-    return f"""
-[VARIÁVEIS]
-
-{variaveis}
-
-[FUNÇÃO OBJETIVO]
-
-{funcao_objetivo}
-
-[CONDIÇÕES]
-
-{condicoes}
-    """
+    print("\n[CONDIÇÕES]\n")
+    print(condicoes)
 
 # (X * CUSTO_DE)*TAXA_PARA(EM DÓLAR) --> MANTER DÓLAR
 
@@ -141,7 +132,7 @@ def desenhar_fluxo_custo():
     plt.show()
 
 
-print(modelando_contexto())
+modelando_contexto()
 
 # # Apresenta o grafo da taxa de câmbio
 # desenhar_fluxo_taxa()
