@@ -43,7 +43,7 @@ def modelando_contexto():
     for i in range(3):
         for j in range(len(LIMITES_SOBRE_TRANSACOES[0])):
             if LIMITES_SOBRE_TRANSACOES[i][j] is not None:
-                condicoes += f"X{i}{j} <= " \
+                condicoes += f"X{i}{j} * <= " \
                     f"{LIMITES_SOBRE_TRANSACOES[i][j]}\n"
 
     return f"""
@@ -63,7 +63,7 @@ def modelando_contexto():
 # (X * CUSTO_DE)*TAXA_PARA(EM DÓLAR) --> MANTER DÓLAR
 
 # Ringgit Dólar
-# 1000*0,7/100 --> 7 Ringgits * 0,2 --> 1,4 Dólares --> o quanto paga para passar de ringitt pra dólar
+# 1000* 0,7/100 --> 7 Ringgits * 0,2 --> 1,4 Dólares --> o quanto paga para passar de ringitt pra dólar
 
 # Ringgit Euro Dolar
 # 1000 * 0,4/100 -> 4 ringitss * 0,2 --> 0,8 Dólares
@@ -143,7 +143,7 @@ def desenhar_fluxo_custo():
 
 print(modelando_contexto())
 
-# Apresenta o grafo da taxa de câmbio
+# # Apresenta o grafo da taxa de câmbio
 # desenhar_fluxo_taxa()
 
 # # Ao fechar a aba do grafo da taxa esse outro aparecerá

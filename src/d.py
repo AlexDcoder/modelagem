@@ -10,5 +10,23 @@ respectivas moedas para dólares?
 from ortools.linear_solver import pywraplp
 from dados import TAXAS_DE_CAMBIO, MOEDAS, CUSTO_DE_TRANSACAO, LIMITES_SOBRE_TRANSACOES
 from math import inf
+from pprint import pprint
+from copy import deepcopy
 
-solver = pywraplp.Solver.CreateSolver("GLOP")
+
+def resolver_questoes_com_imposto_aumentado():
+    '''
+        Resolvendo item d
+    '''
+    novos_custos_de_transação = deepcopy(CUSTO_DE_TRANSACAO)
+
+    novos_custos_de_transação[1] = [
+        x * 5 if x is not None else None for x in novos_custos_de_transação[1]]
+    for i in range(8):
+        novos_custos_de_transação[i][1] = novos_custos_de_transação[1][i]
+
+    pprint(novos_custos_de_transação)
+    solver = pywraplp.Solver.CreateSolver("GLOP")
+
+
+resolver_questoes_com_imposto_aumentado()
