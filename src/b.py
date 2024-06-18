@@ -17,7 +17,7 @@ solver = pywraplp.Solver.CreateSolver("GLOP")
 def resolver_problema_com_limites():
     # Criando variáveis
     variaveis = [
-        solver.IntVar(0, inf, f"X{i_de}{i_para}")
+        solver.NumVar(0, inf, f"X{i_de}{i_para}")
         for i_de, _ in enumerate(MOEDAS)
         for i_para, _ in enumerate(MOEDAS)
         if TAXAS_DE_CAMBIO[i_de][i_para] is not None
