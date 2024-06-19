@@ -33,7 +33,7 @@ CUSTO_DE_TRANSACAO: Matriz = [
     [0.5/100, 0.75/100, 0.5/100, 0.1/100, 0.1/100, 0.5/100, 0.5/100, None]
 ]
 
-# Matriz de limites sonre transações equivalentes a USUS$ 1000
+# Matriz de limites sobre transações equivalentes a USUS$ 1000
 LIMITES_SOBRE_TRANSACOES: Matriz = [
     [None, 5000*10**3, 5000*10**3, 2000*10**3, 2000 *
         10**3, 2000*10**3, 2000*10**3, 4000*10**3],
