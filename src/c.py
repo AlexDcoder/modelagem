@@ -17,7 +17,7 @@ def resolver_problema_sem_limites(carga_japao, carga_india, carga_malasia):
     qtd_moedas = len(MOEDAS)
 
     # Cargas Iniciais(Em Dólares)
-    carga_japao_dolar = TAXAS_DE_CAMBIO[1][3] * carga_japao
+    carga_japao_dolar = TAXAS_DE_CAMBIO[0][3] * carga_japao
     carga_india_dolar = TAXAS_DE_CAMBIO[1][3] * carga_india
     carga_malasia_dolar = TAXAS_DE_CAMBIO[2][3] * carga_malasia
 
